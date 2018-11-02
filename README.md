@@ -29,3 +29,21 @@ This python routine measures the length of a galaxy bar by means of elliptical i
 To measure the bar length with these elliptical isophotes, this code analyzes the radial behaviour of both the ellipticity and position angle and uses two different methods of obtaining a bar length.
 
 ## colors.py
+This python routine reads in two on-sky galaxy image as text files and computes three different colors. In astronomy, we observe objects in different wavelength bands, as certain stars, galaxies etc. give off light differently depending on the wavelength. We simply define a color as the difference between two photometric bands. Here, we are using two images, one through a blue filter (Johnson B) and one through a red filter (Johnson I). 
+
+The three different colors we measure are all *B-I*. However, each take different components of the galaxy into account. 
+-**bar color**: defined within the bar region
+-**disk color**: defined outside the bar region
+-**area color**: defined as the entire galaxy out to a certain radius
+As bars and disks have different stellar populations, we can learn a lot about a galaxy by looking at the colors in each of these regions.
+
+## deproject.py
+Similar to bar_len.py above, this python routine analyzes elliptical isophotes. Here, we simply obtain the position angle and inclination of the galaxy.
+
+## imread.py
+A simple python routine that reads in a \*.fits file and converts it to a text file.
+
+## phase.f90
+Another backbone of my thesis project.
+
+This fortran routine requires azimuthal light profiles output by **az_prof.f90**. Here, we decompose the azimuthal light profiles via a Fourier transform in order to learn more about the bar. As a bar is at a constant azimuthal angle, it shows up twice in 0 to 2pi azimuthal decomposition. Therefore, a Fourier analysis will show that a bar has very strong even modes of a Fourier series. This is an additional means of proving a bar is in a galaxy. In addition, there is also a means of measuring a bar length via the Fourier Amplitudes. Finally, we use this routine to measure an additional feature of a galaxy bar: the corotation radius. This is simply the radius where orbits in a galaxy are equal to the pattern speed of the bar. This is important for determining things like the relative bar pattern speed, and is one of the three main bar properties measured in astronomy.
