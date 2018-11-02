@@ -1,5 +1,5 @@
 # GraduateSchool
-Various code that I have written over my graduate career.
+Various code that I have written over my graduate career to analyze a wide range of galaxy data.
 
 
 ## az_prof.f90
