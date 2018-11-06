@@ -47,3 +47,15 @@ A simple python routine that reads in a \*.fits file and converts it to a text f
 Another backbone of my thesis project.
 
 This fortran routine requires azimuthal light profiles output by **az_prof.f90**. Here, we decompose the azimuthal light profiles via a Fourier transform in order to learn more about the bar. As a bar is at a constant azimuthal angle, it shows up twice in 0 to 2pi azimuthal decomposition. Therefore, a Fourier analysis will show that a bar has very strong even modes of a Fourier series. This is an additional means of proving a bar is in a galaxy. In addition, there is also a means of measuring a bar length via the Fourier Amplitudes. Finally, we use this routine to measure an additional feature of a galaxy bar: the corotation radius. This is simply the radius where orbits in a galaxy are equal to the pattern speed of the bar. This is important for determining things like the relative bar pattern speed, and is one of the three main bar properties measured in astronomy.
+
+## phot.py
+This python script takes elliptical isophotes and outputs photometry: central surface brightness, disk scale length, total magnitude, and surface brightness profiles. As reduced galaxy images are in units of counts, these must be converted to magnitudes by means of a photometric zeropoint. As there may be a bar in the center of the galaxy, the code asks the user to input the range to fit over for the disk profile and extrapolates into the center of the galaxy to obtain a central surface brightness.
+
+# surf_bright.f90
+This fortran program takes in light intensities of galaxy components ouput via DiskFit, a galaxy image fitting program, and converts and combines them into a total surface brightness profile of the galaxy.
+
+## vel.f90
+This fortran program outputs a velocity map of a galaxy using multi-fiber spectroscopy. Specifically, it was used with optical data taken with the SparsePak IFU. In astronomy, we can use the emission of gas to measure the line of sight velocity in a galaxy. At rest, a certain gas will emit light at a *knwon* wavelength, but due to the Doppler effect caused by motion we will measure the emission at a different wavelength. By determining the difference between the observed and known wavelengths, we therefore have a means of measuring the line of sight velocity. For a galaxy, we can further decompose this into a rotational velocity if we know the inclination of the galaxy disk. With multi-fiber spectroscopy, we can get a two-dimensional map of rotational velocity across the entire galaxy, or at least where we can measure emission. 
+
+## vel_slit.f90
+This fortran program does the same as the code above, except for long-slit spectroscopy instead of multi-fiber spectrscopy. The difference here is that long-slit spectroscopy measure emission along a narrow slit that is placed across the galaxy. In order to obtain a rotational velocity, the slit must be placed along the major-axis of the galaxy.
