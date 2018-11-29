@@ -51,7 +51,7 @@ This fortran routine requires azimuthal light profiles output by **az_prof.f90**
 ## phot.py
 This python script takes elliptical isophotes and outputs photometry: central surface brightness, disk scale length, total magnitude, and surface brightness profiles. As reduced galaxy images are in units of counts, these must be converted to magnitudes by means of a photometric zeropoint. As there may be a bar in the center of the galaxy, the code asks the user to input the range to fit over for the disk profile and extrapolates into the center of the galaxy to obtain a central surface brightness.
 
-# surf_bright.f90
+## surf_bright.f90
 This fortran program takes in light intensities of galaxy components ouput via DiskFit, a galaxy image fitting program, and converts and combines them into a total surface brightness profile of the galaxy.
 
 ## vel.f90
